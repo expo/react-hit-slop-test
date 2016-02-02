@@ -24,7 +24,12 @@ export default class HitSlopApp extends React.Component {
         <TouchableOpacity
           style={styles.touchable}
           onPress={this._increment}
-          hitSlop={16}>
+          hitSlop={{
+            top: 0,
+            bottom: 0,
+            left: 16,
+            right: 16,
+          }}>
           <Text style={styles.ben}>Hit slop</Text>
         </TouchableOpacity>
         <TouchableOpacity
