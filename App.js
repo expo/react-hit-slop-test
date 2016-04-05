@@ -8,8 +8,6 @@ import React, {
   TouchableOpacity,
 } from 'react-native';
 
-import autobind from 'autobind-decorator';
-
 export default class HitSlopApp extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +21,7 @@ export default class HitSlopApp extends React.Component {
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.touchable}
-          onPress={this._increment}
+          onPress={this._increment.bind(this)}
           hitSlop={{
             top: 0,
             bottom: 0,
@@ -34,7 +32,7 @@ export default class HitSlopApp extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.touchable}
-          onPress={this._increment}>
+          onPress={this._increment.bind(this)}>
           <Text style={styles.ben}>No hit slop</Text>
         </TouchableOpacity>
         <Text style={styles.counter}>
@@ -44,7 +42,6 @@ export default class HitSlopApp extends React.Component {
     );
   }
 
-  @autobind
   _increment() {
     this.setState({ counter: this.state.counter + 1 });
   }
